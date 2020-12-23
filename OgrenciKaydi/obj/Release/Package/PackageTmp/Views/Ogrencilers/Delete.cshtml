@@ -1,0 +1,59 @@
+﻿@model OgrenciKaydi.Models.Ogrenciler
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Öğrenci Veritabanı</h2>
+<br />
+<br />
+
+<h4>Öğrenci Sil</h4>
+<div>
+    <h6>Bunu silmek istiyor musun?</h6>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OkulNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OkulNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Adi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Soyadi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Soyadi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bolum)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bolum)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-danger" /> |
+            @Html.ActionLink("Geri", "Index", "", new { @class = "btn btn-secondary" })
+        </div>
+    }
+</div>

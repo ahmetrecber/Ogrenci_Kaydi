@@ -1,0 +1,52 @@
+﻿@model IEnumerable<OgrenciKaydi.Models.Ogrenciler>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Öğrenci Veritabanı</h2>
+<br />
+<br />
+<p>
+    @Html.ActionLink("Yeni Öğrenci Ekle", "Create",  "", new { @class = "btn btn-success" })
+</p>
+<table class="table table-dark table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OkulNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Adi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Soyadi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bolum)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td class="align-middle">
+            @Html.DisplayFor(modelItem => item.OkulNo)
+        </td>
+        <td class="align-middle">
+            @Html.DisplayFor(modelItem => item.Adi)
+        </td>
+        <td class="align-middle">
+            @Html.DisplayFor(modelItem => item.Soyadi)
+        </td>
+        <td class="align-middle">
+            @Html.DisplayFor(modelItem => item.Bolum)
+        </td>
+        <td class="align-middle">
+            @Html.ActionLink("Güncelle", "Edit", new { id = item.ID}, new { @class = "btn btn-primary" }) |
+            @Html.ActionLink("Detay", "Details", new { id=item.ID }, new { @class = "btn btn-warning" }) |
+            @Html.ActionLink("Sil", "Delete", new { id=item.ID }, new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>
